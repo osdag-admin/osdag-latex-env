@@ -4,7 +4,6 @@ import platform
 import subprocess
 from pathlib import Path
 
-
 class OsdagLatexEnv:
     """
     OsdagLatexEnv provides a lightweight interface to the LaTeX toolchain
@@ -31,6 +30,30 @@ class OsdagLatexEnv:
         self.bin_dir = self._detect_bin_dir()
         self.tex_root = self._detect_tex_root()
         self.bin = self._discover_binaries()
+
+    @property
+    def available(self) -> bool:
+        """
+        Check whether any LaTeX binaries were found in this environment.
+
+        Returns
+        -------
+        bool
+            True if at least one LaTeX executable is available, False otherwise.
+        """
+        return bool(self.bin)
+    
+    def require(self):
+        """
+        Ensure that LaTeX binaries are available in this environment. Use if want to force osdag-latex-env presence.
+
+        Raises
+        ------
+        RuntimeError
+            If no LaTeX binaries are found.
+        """
+        if not self.available:
+            raise RuntimeError("No LaTeX binaries found in the current environment. Please install osdag-latex-env.")
 
     def _detect_bin_dir(self) -> Path:
         """
