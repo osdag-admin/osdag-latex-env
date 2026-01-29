@@ -1,0 +1,34 @@
+package:
+  name: osdag-latex-env
+  version: "1.0.0"
+
+source:
+  path: ..
+
+build:
+  number: 0
+  noarch: false
+  script:
+    # Windows
+    - mkdir %PREFIX%\\Library\\share\\osdag-latex-env    # [win]
+    - robocopy /E /I assets\\windows\\bin %PREFIX%\\Library\\bin   # [win]
+    - robocopy /E /I assets\\windows\\texmf %PREFIX%\\Library\\share\\osdag-latex-env  # [win]
+
+    # Linux
+    - mkdir -p $PREFIX/share/osdag-latex-env                # [linux]
+    - cp -r assets/linux/bin/* $PREFIX/bin/             # [linux]
+    - cp -r assets/linux/texmf/* $PREFIX/share/osdag-latex-env  # [linux]
+
+    # macOS
+    - mkdir -p $PREFIX/share/osdag-latex-env                # [osx]
+    - cp -r assets/macos/bin/* $PREFIX/bin/             # [osx]
+    - cp -r assets/macos/texmf/* $PREFIX/share/osdag-latex-env  # [osx]
+
+requirements:
+  host:
+    - python
+  run:
+    - python
+
+about:
+  summary: Self-contained cross-platform LaTeX toolchain for Osdag
