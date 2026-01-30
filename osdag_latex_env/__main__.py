@@ -31,6 +31,22 @@ class OsdagLatexEnv:
         self.tex_root = self._detect_tex_root()
         self.bin = self._discover_binaries()
 
+
+    def configure_tex(self):
+        
+        texmf_dist = str(self.tex_root / "texmf-dist")
+
+        os.environ["TEXMFHOME"] = texmf_dist
+        os.environ["TEXINPUTS"] = texmf_dist + os.pathsep + os.environ.get("TEXINPUTS", "")
+        sty_pkgs = str(self.tex_root / "texmf-dist" / "tex" / "latex").replace("\\", "/")
+        pkg_resources = [
+            f"{sty_pkgs}/amsmath",
+            f"{sty_pkgs}/graphics",
+            f"{sty_pkgs}/needspace",
+        ]
+
+        os.environ["TEXINPUTS"] = ";".join(pkg_resources) + ";" + os.environ["TEXINPUTS"]
+        
     @property
     def available(self) -> bool:
         """
@@ -43,18 +59,6 @@ class OsdagLatexEnv:
         """
         return bool(self.bin)
     
-    def require(self):
-        """
-        Ensure that LaTeX binaries are available in this environment. Use if want to force osdag-latex-env presence.
-
-        Raises
-        ------
-        RuntimeError
-            If no LaTeX binaries are found.
-        """
-        if not self.available:
-            raise RuntimeError("No LaTeX binaries found in the current environment. Please install osdag-latex-env.")
-
     def _detect_bin_dir(self) -> Path:
         """
         Detect the directory containing executables for the current platform.
@@ -71,9 +75,9 @@ class OsdagLatexEnv:
             Path to the directory containing LaTeX executables.
         """
         if self.system == "windows":
-            return self.prefix / "Library" / "bin"
+            return self.prefix / "Library" / "share" / "osdag_latex_env" / "bin"
         else:
-            return self.prefix / "bin"
+            return self.prefix / "share" / "osdag_latex_env" / "bin"
 
     def _detect_tex_root(self) -> Path:
         """
@@ -87,9 +91,9 @@ class OsdagLatexEnv:
             Path to the osdag-latex-env texmf root.
         """
         if self.system == "windows":
-            return self.prefix / "Library" / "share" / "osdag-latex-env"
+            return self.prefix / "Library" / "share" / "osdag_latex_env"
         else:
-            return self.prefix / "share" / "osdag-latex-env"
+            return self.prefix / "share" / "osdag_latex_env"
 
     def _discover_binaries(self) -> dict[str, Path]:
         """
@@ -169,61 +173,4 @@ class OsdagLatexEnv:
         """
         return self.get("pdflatex")
     
-    def get_bibtex(self) -> Path:
-        """
-        Get the path to the bibtex executable.
-
-        Returns
-        -------
-        Path
-            Absolute path to bibtex.
-        """
-        return self.get("bibtex")
-
-    def run(self, name, args=None) -> subprocess.CompletedProcess:
-        """
-        Run a LaTeX-related executable with the given arguments.
-
-        This is a generic execution method for any tool in the registry.
-
-        Parameters
-        ----------
-        name : str
-            Name of the executable to run.
-        args : list[str], optional
-            Command-line arguments passed to the executable.
-
-        Returns
-        -------
-        subprocess.CompletedProcess
-            Result object returned by subprocess.run.
-        """
-
-        if args is None:
-            args = []
-        exe = self.get(name)
-        return subprocess.run([str(exe)] + args)
-
-    def pdflatex(self, tex_file, extra_args=None) -> subprocess.CompletedProcess:
-        """
-        Compile a TeX file using pdflatex.
-
-        This is a convenience wrapper around `run("pdflatex", ...)`.
-
-        Parameters
-        ----------
-        tex_file : str
-            Path to the .tex file.
-        extra_args : list[str], optional
-            Additional command-line flags for pdflatex.
-
-        Returns
-        -------
-        subprocess.CompletedProcess
-            Result object returned by subprocess.run.
-        """
-        args = []
-        if extra_args:
-            args += extra_args
-        args.append(tex_file)
-        return self.run("pdflatex", args)
+    

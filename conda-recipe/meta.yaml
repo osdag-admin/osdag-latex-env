@@ -13,20 +13,16 @@ build:
     - {{ PYTHON }} -m pip install . --no-deps -vv
 
     # Windows
-    - if not exist %PREFIX%\\Library\\bin mkdir %PREFIX%\\Library\\bin      # [win]
-    - if not exist %PREFIX%\\Library\\share mkdir %PREFIX%\\Library\\share    # [win]
-    - robocopy assets\\windows\\bin %PREFIX%\\Library\\bin /E || IF %ERRORLEVEL% GEQ 8 EXIT /B 1   # [win]
-    - robocopy assets\\texmf %PREFIX%\\Library\\share /E || IF %ERRORLEVEL% GEQ 8 EXIT /B 1  # [win]
+    - mkdir "%PREFIX%\\Library\\share\\osdag_latex_env"    # [win]
+    - robocopy "assets" "%PREFIX%\\Library\\share\\osdag_latex_env" /E || IF %ERRORLEVEL% GEQ 8 EXIT /B 1  # [win]
 
     # Linux
-    - mkdir -p $PREFIX/share                # [linux]
-    - cp -r ../assets/linux/bin/* $PREFIX/bin/         # [linux]
-    - cp -r ../assets/texmf/* $PREFIX/share  # [linux]
+    - mkdir -p "$PREFIX/share/osdag_latex_env"               # [linux]
+    - cp -r assets/* "$PREFIX/share/osdag_latex_env"  # [linux]
 
     # macOS
-    - mkdir -p $PREFIX/share                # [osx]
-    - cp -r ../assets/macos/bin/* $PREFIX/bin/         # [osx]
-    - cp -r ../assets/texmf/* $PREFIX/share  # [osx]
+    - mkdir -p "$PREFIX/share/osdag_latex_env"                # [osx]
+    - cp -r assets/* "$PREFIX/share/osdag_latex_env"  # [osx]
 
 requirements:
   build:
