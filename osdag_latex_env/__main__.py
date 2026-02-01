@@ -128,7 +128,7 @@ class OsdagLatexEnv:
         Path | None
             Absolute path to pdflatex, None if not found.
         """
-        exe = "pdflatex.exe" if self.__system == "windows" else "pdftex"
+        exe = "pdflatex.exe" if self.__system == "windows" else "pdflatex"
         if self.bin_dir and (self.bin_dir / exe).exists():
             return self.bin_dir / exe
         sys_latex = shutil.which("pdflatex")

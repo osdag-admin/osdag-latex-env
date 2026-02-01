@@ -14,21 +14,28 @@ build:
 
     # Windows
     - mkdir "%PREFIX%\\Library\\share\\osdag_latex_env"     # [win]
-    - robocopy "assets" "%PREFIX%\\Library\\share\\osdag_latex_env" /E /XD bin || IF %ERRORLEVEL% GEQ 8 EXIT /B 1     # [win]
+    - robocopy "assets" "%PREFIX%\\Library\\share\\osdag_latex_env" /E /XD bin /XD "texmf-var-win" /XD "texmf-var-linux" /XD "texmf-var-mac" || IF %ERRORLEVEL% GEQ 8 EXIT /B 1     # [win]
     - mkdir "%PREFIX%\\Library\\share\\osdag_latex_env\\bin"    # [win]
+    - mkdir "%PREFIX%\\Library\\share\\osdag_latex_env\\texmf-var"   #[win]
     - robocopy assets\\bin\\x86_64-windows "%PREFIX%\\Library\\share\\osdag_latex_env\\bin\\x86_64-windows" /E || IF %ERRORLEVEL% GEQ 8 EXIT /B 1      # [win]
+    - robocopy assets\\texmf-var-win "%PREFIX%\\Library\\share\\osdag_latex_env\\texmf-var" /E || IF %ERRORLEVEL% GEQ 8 EXIT /B 1      # [win]
 
     # Linux
     - mkdir -p "$PREFIX/share/osdag_latex_env"         # [linux]
-    - rsync -a --exclude=bin assets/ "$PREFIX/share/osdag_latex_env/"     # [linux]  
+    - rsync -a  --exclude=bin --exclude=texmf-var-win  --exclude=texmf-var-linux  --exclude=texmf-var-mac assets/ "$PREFIX/share/osdag_latex_env/"     # [linux]  
     - mkdir -p "$PREFIX/share/osdag_latex_env/bin"      # [linux]
+    - mkdir -p "$PREFIX/share/osdag_latex_env/texmf-var"  # [linux]
     - cp -r assets/bin/x86_64-linux/ "$PREFIX/share/osdag_latex_env/bin/"     # [linux]
+    - cp -r assets/texmf-var-linux/ "$PREFIX/share/osdag_latex_env/texmf-var/" # [linux]
 
     # MacOS
     - mkdir -p "$PREFIX/share/osdag_latex_env"    # [osx]
-    - rsync -a --exclude=bin assets/ "$PREFIX/share/osdag_latex_env/"   # [osx]
+    - rsync -a --exclude=bin --exclude=texmf-var-win --exclude=texmf-var-linux --exclude=texmf-var-mac assets/ "$PREFIX/share/osdag_latex_env/"     # [osx] 
     - mkdir -p "$PREFIX/share/osdag_latex_env/bin"    # [osx]
+    - mkdir -p "$PREFIX/share/osdag_latex_env/texmf-var"  # [osx]
     - cp -r assets/bin/*darwin "$PREFIX/share/osdag_latex_env/bin/"     # [osx]
+    - cp -r assets/texmf-var-mac/ "$PREFIX/share/osdag_latex_env/texmf-var/" # [osx]
+
 
 requirements:
   build:
