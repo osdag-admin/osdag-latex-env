@@ -1,8 +1,0 @@
-name texcount.universal-darwin
-category Package
-revision 57908
-shortdesc universal-darwin files of texcount
-containersize 340
-containerchecksum 6ff4421cece57ff3e8e0718c4826a6d5890c71315b3e7f1428c0cc66a27e99d7917147c90082861d79a713ab31e395922af8ee45ebbf68d99bf428ba49ce5083
-binfiles arch=universal-darwin size=1
- bin/universal-darwin/texcount

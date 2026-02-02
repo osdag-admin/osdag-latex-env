@@ -1,8 +1,0 @@
-name latexindent.universal-darwin
-category Package
-revision 57908
-shortdesc universal-darwin files of latexindent
-containersize 344
-containerchecksum 1319ee46aa7512b5077f657ac7a405074ff4751a53f53875cae9dfc4b4e518948e6d6c4263f75441bc9ce0d3f3e6d705b24aa40f3234ed5022155c2ccbc586d2
-binfiles arch=universal-darwin size=1
- bin/universal-darwin/latexindent

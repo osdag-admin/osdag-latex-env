@@ -1,8 +1,0 @@
-name thumbpdf.universal-darwin
-category Package
-revision 57908
-shortdesc universal-darwin files of thumbpdf
-containersize 340
-containerchecksum f90c5d463bc6e7661230e29d8eeb32d79cb6091946e7068fe21cbfeaad13a256c3057bf6c0de9fb64b60d2ead01b015787a80d9d8a662475f5fcc473169e950a
-binfiles arch=universal-darwin size=1
- bin/universal-darwin/thumbpdf
