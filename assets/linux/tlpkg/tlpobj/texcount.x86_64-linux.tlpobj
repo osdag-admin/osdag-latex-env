@@ -1,0 +1,8 @@
+name texcount.x86_64-linux
+category Package
+revision 13013
+shortdesc x86_64-linux files of texcount
+containersize 340
+containerchecksum 5d4823ce741a1ca092b01ac1f24cb02dbe9a1053978e5dbac69281b173cda93dd1414b6c900e9bb21209e6af1c1af79001454241a3d325b0ab38bfde78094ec0
+binfiles arch=x86_64-linux size=1
+ bin/x86_64-linux/texcount

@@ -95,10 +95,7 @@ class OsdagLatexEnv:
             dir = self.__prefix / "share" / "osdag_latex_env" / "bin" / "x86_64-linux"
             return dir if dir.exists() else None
         elif self.__system == "darwin":
-            if self.__machine in ("arm64", "aarch64"):
-                dir = self.__prefix / "share" / "osdag_latex_env" / "bin" / "arm64-darwin"
-                return dir if dir.exists() else None
-            dir = self.__prefix / "share" / "osdag_latex_env" / "bin" / "x86_64-darwin"
+            dir = self.__prefix / "share" / "osdag_latex_env" / "bin" / "universal-darwin"
             return dir if dir.exists() else None
 
     def _detect_tex_root(self) -> Path | None:

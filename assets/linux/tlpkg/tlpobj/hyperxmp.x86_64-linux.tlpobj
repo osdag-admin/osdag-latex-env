@@ -1,0 +1,8 @@
+name hyperxmp.x86_64-linux
+category Package
+revision 56984
+shortdesc x86_64-linux files of hyperxmp
+containersize 356
+containerchecksum 7eba3567c55235b7108a10f47b63f0150b70e52505491e4dd04caf1e906baa46435c3bf711127fea73a4f212fe586a460fb92c76b22c2fc673ae770b60dcdcf2
+binfiles arch=x86_64-linux size=1
+ bin/x86_64-linux/hyperxmp-add-bytecount

@@ -1,0 +1,8 @@
+name urlbst.x86_64-linux
+category Package
+revision 23262
+shortdesc x86_64-linux files of urlbst
+containersize 336
+containerchecksum 40e4ca89e5a6fd3fdd89ae060f77a919dd53525c0d6820ccc9d88fa107819ed6fc856258e79b75f4feb029349072d7c96781b809b593b07feeb220f3c7007b59
+binfiles arch=x86_64-linux size=1
+ bin/x86_64-linux/urlbst

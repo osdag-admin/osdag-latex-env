@@ -1,0 +1,29 @@
+name cleveref
+category Package
+revision 76924
+shortdesc Intelligent cross-referencing
+longdesc The package enhances LaTeX's cross-referencing features,
+longdesc allowing the format of references to be determined
+longdesc automatically according to the type of reference. The formats
+longdesc used may be customised in the preamble of a document; babel
+longdesc support is available (though the choice of languages remains
+longdesc limited: currently Danish, Dutch, English, French, German,
+longdesc Italian, Norwegian, Russian, Spanish and Ukrainian). The
+longdesc package also offers a means of referencing a list of
+longdesc references, each formatted according to its type. In such
+longdesc lists, it can collapse sequences of numerically-consecutive
+longdesc labels to a reference range.
+containersize 28472
+containerchecksum 3fffeda826456ae3a8af09a67d816ea30915e8902f9b0d449830c4f20cb685c405a56670bf24babe93b0d784cfce45bd9963811ca09e0de191936e079b691760
+doccontainersize 386944
+doccontainerchecksum 54c8a55f3af82fdf9a5f391e6c5a94c27e7ab42b003ddcbabed501d97858f04491593fc8e607ab2765d71f72c731406cdc6e091229293d56ac73c76888934899
+srccontainersize 77480
+srccontainerchecksum 1825bdadc5b395ac3d9e4b1a2aa94626f9e8df99a72e5a1cf4807d42a48dd0b1f5bb1a35536c8ae9aacfae7efc35edecdf11d6bc8e9b409cd074a16ab86232c9
+runfiles size=81
+ texmf-dist/tex/latex/cleveref/cleveref.sty
+catalogue-also crefthe
+catalogue-contact-home http://www.dr-qubit.org/cleveref.html
+catalogue-ctan /macros/latex/contrib/cleveref
+catalogue-license lppl1.2
+catalogue-topics label-ref
+catalogue-version 0.21.4

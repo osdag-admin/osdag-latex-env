@@ -1,0 +1,8 @@
+name biber.universal-darwin
+category Package
+revision 75738
+shortdesc universal-darwin files of biber
+containersize 69739628
+containerchecksum dd8d62dcff5d5b542d48846e447414d3dcab7c492387ef85562deeebf3d6a08b001d47b58be87595f7854e5ba602076d1e0641a396157d0227dedd747fac9bdf
+binfiles arch=universal-darwin size=20307
+ bin/universal-darwin/biber

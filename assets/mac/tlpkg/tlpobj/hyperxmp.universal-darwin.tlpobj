@@ -1,0 +1,8 @@
+name hyperxmp.universal-darwin
+category Package
+revision 57908
+shortdesc universal-darwin files of hyperxmp
+containersize 356
+containerchecksum 87ceec5c0f87f5af138c8393ed2dbc07db0ee0317540ca5e826ecaa45360b327dff86ef05c2f6b9dfdb4c3ad1264062a229e9d16a83998a4bf5909ab3f90b568
+binfiles arch=universal-darwin size=1
+ bin/universal-darwin/hyperxmp-add-bytecount

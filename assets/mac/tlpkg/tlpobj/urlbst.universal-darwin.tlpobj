@@ -1,0 +1,8 @@
+name urlbst.universal-darwin
+category Package
+revision 57908
+shortdesc universal-darwin files of urlbst
+containersize 336
+containerchecksum 6b6c74af426fcc29638ef43ac1a92cfa2ae9e6ab07caadbdbf51fe971f74c5ecb226d45aa6a298c0f046c61e02809ec948dac094b2ccaa36c2ee397813f16e22
+binfiles arch=universal-darwin size=1
+ bin/universal-darwin/urlbst
