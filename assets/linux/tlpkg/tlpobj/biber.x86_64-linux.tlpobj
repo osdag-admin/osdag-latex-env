@@ -1,8 +1,0 @@
-name biber.x86_64-linux
-category Package
-revision 75738
-shortdesc x86_64-linux files of biber
-containersize 25903448
-containerchecksum 212dcb25a2b90f4e7e47bacea01d66b9d941a7cc2492431192d8edf0640af8d65d31f3f53a28a71ec0e87cec33409200ccc5debafa8d0e84b27f21e60572aee6
-binfiles arch=x86_64-linux size=8000
- bin/x86_64-linux/biber

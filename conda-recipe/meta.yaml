@@ -22,7 +22,7 @@ build:
 
     # MacOS
     - mkdir -p "$PREFIX/share/osdag_latex_env"    # [osx]
-    - cp -r assets/mac/* "$PREFIX/share/osdag_latex_env/"
+    - cp -r assets/mac/* "$PREFIX/share/osdag_latex_env/" # [osx]
 
 
 requirements:
