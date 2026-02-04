@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "osdag_latex_env"
+version = "1.0.0"
+description = "Self-contained LaTeX runtime and Python API for Osdag"
+requires-python = ">=3.11,<3.14"
+authors = [
+    { name = "Osdag Team" }
+]
+
+[tool.setuptools]
+packages = ["osdag_latex_env"]

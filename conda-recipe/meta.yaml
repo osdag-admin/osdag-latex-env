@@ -1,0 +1,46 @@
+package:
+  name: osdag_latex_env
+  version: "1.0.2"
+
+source:
+  path: ..
+
+build:
+  number: 0
+  noarch: false
+  script:
+
+    - {{ PYTHON }} -m pip install . --no-deps -vv
+
+    # Windows
+    - mkdir "%PREFIX%\\Library\\share\\osdag_latex_env"     # [win]
+    - robocopy "assets\\win" "%PREFIX%\\Library\\share\\osdag_latex_env" /E || IF %ERRORLEVEL% GEQ 8 EXIT /B 1     # [win]
+
+    # Linux
+    - mkdir -p "$PREFIX/share/osdag_latex_env"         # [linux]
+    - cp -r assets/linux/* "$PREFIX/share/osdag_latex_env/" # [linux]
+
+    # MacOS
+    - mkdir -p "$PREFIX/share/osdag_latex_env"    # [osx]
+    - cp -r assets/mac/* "$PREFIX/share/osdag_latex_env/" # [osx]
+
+
+requirements:
+  build:
+    - python>=3.11,<=3.13
+    - setuptools
+    - pip
+  host:
+    - setuptools
+    - pip
+    - python>=3.11,<=3.13
+  run:
+    - python>=3.11,<=3.13
+
+about:
+  summary: Self-contained cross-platform LaTeX toolchain for Osdag
+  license: LGPL-3.0-only
+  license_family: LGPL
+  home: https://osdag.fossee.in
+  dev_url: https://github.com/osdag-admin/osdag-latex-env
+  doc_url: https://github.com/osdag-admin/osdag-latex-env
